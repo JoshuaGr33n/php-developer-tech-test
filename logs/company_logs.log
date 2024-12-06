@@ -1,3 +1,0 @@
-[2024-12-06T21:24:37.531591+00:00] company_matcher.WARNING: Attempted to deduct credits from company 2, but they have no credits left. [] []
-[2024-12-06T21:24:37.532283+00:00] company_matcher.WARNING: Attempted to deduct credits from company 3, but they have no credits left. [] []
-[2024-12-06T21:24:37.532628+00:00] company_matcher.WARNING: Attempted to deduct credits from company 1, but they have no credits left. [] []
