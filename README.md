@@ -26,3 +26,47 @@ Unfortunately the dev looking after this project ran into some trouble and commi
 - Prevent the form from being submitted twice by disabling the submit button on first submit
 - Reveal/Hide additional company information by clicking on the **more** link on the results page
 - Install a logger and log to file whenever a company runs out of credits
+
+
+---
+
+## Instructions for Running Tests
+
+Follow these steps to ensure that the application and its tests run correctly:
+
+1. **Install Dependencies**
+   Before running any tests, ensure all dependencies are installed. Use the following command:
+   ```bash
+   composer install
+   ```
+
+2. **Run Unit Tests**
+   Execute the PHPUnit test suite to verify the correctness of individual units like repositories and services:
+   ```bash
+   ./vendor/bin/phpunit
+   ```
+
+3. **Run Integration Tests**
+   Test the integration between components, such as the repository interacting with the database:
+   ```bash
+   ./vendor/bin/phpunit tests/Integration
+   ```
+
+4. **Run Feature Tests**
+   Simulate user interaction and verify end-to-end behavior of the application:
+   ```bash
+   ./vendor/bin/phpunit tests/Feature
+   ```
+
+   You can also run specific test files or directories:
+   ```bash
+   ./vendor/bin/phpunit <test-file-or-directory>
+   ```
+
+---
+
+## Additional Notes
+- Ensure you have the correct database setup before running integration tests. Import **`project.sql`** to create the required tables and seed the data.
+- Review your `.env` or configuration file to confirm database connection details.
+- You can customize the PHPUnit configuration in **`phpunit.xml`** to fit your development environment.
+

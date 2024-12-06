@@ -5,9 +5,13 @@ namespace App;
 class Router
 {
     private $routes;
+    private $container;
 
-    public function __construct()
+    public function __construct($container)
     {
+        // Store the container for dependency resolution
+        $this->container = $container;
+
         $this->routes = require __DIR__ . '/routes.php';
     }
 
@@ -22,16 +26,19 @@ class Router
 
         foreach ($this->routes[$uri] as $route) {
             if ($route['type'] == $type) {
-                [ $controller, $method ] = explode('@', $route['handler']);
+                [$controller, $method] = explode('@', $route['handler']);
                 $controller = sprintf('App\Controller\%s', $controller);
-    
-                $request = new $controller();
-                $request->{$method}($params);
+
+                // Resolve the controller with the container
+                $controllerInstance = $this->container->resolve($controller);
+
+                // Call the method on the controller instance
+                $controllerInstance->{$method}($params);
                 $match = true;
                 break;
             }
         }
-        
+
         if (!$match) {
             header('HTTP/1.0 405 Method Not Allowed');
         }

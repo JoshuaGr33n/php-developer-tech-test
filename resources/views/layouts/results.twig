@@ -1,9 +1,8 @@
 {% extends 'app.twig' %}
 
+{% block content %}
+<p><a href="/form">Back to the form</a></p>
 <h1>Results</h1>
-
-<p>You matched with <!-- NUMBER OF COMPANIES MATCHED --> </p>
-
 <div class="matches">
     {% for company in matchedCompanies %}
         <div class="matches__match">
@@ -11,11 +10,12 @@
             <p>{{ company.description }}</p>
             <a href="#" class="matches__match__more">more</a>
 
-            <div class="match__match__details" style="display:none">
+            <div class="match__details" style="display:none">
                 <p><strong>Email:</strong> {{ company.email }}</p>
                 <p><strong>Phone:</strong> {{ company.phone }}</p>
-                <p><strong>Website:</strong> {{ company.website }}</p>
+                <p><strong>Website:</strong> <a href="{{ company.website }}" target="_blank">{{ company.website }}</a></p>
             </div>
         </div>
     {% endfor %}
 </div>
+{% endblock %}
