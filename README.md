@@ -41,26 +41,25 @@ Follow these steps to ensure that the application and its tests run correctly:
    ```
 
 2. **Run Unit Tests**
-   Execute the PHPUnit test suite to verify the correctness of individual units like repositories and services:
+   
    ```bash
    ./vendor/bin/phpunit
    ```
 
 3. **Run Integration Tests**
-   Test the integration between components, such as the repository interacting with the database:
+   
    ```bash
    ./vendor/bin/phpunit tests/Integration
    ```
 
 4. **Run Feature Tests**
-   Simulate user interaction and verify end-to-end behavior of the application:
    ```bash
    ./vendor/bin/phpunit tests/Feature
    ```
 
-   You can also run specific test files or directories:
+   You can also run specific test files here:
    ```bash
-   ./vendor/bin/phpunit <test-file-or-directory>
+   ./vendor/bin/phpunit filename 
    ```
 
 ---
